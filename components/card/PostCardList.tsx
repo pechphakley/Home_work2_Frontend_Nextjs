@@ -1,14 +1,18 @@
-import { PostCardType as PostCardProps, PostCardType } from "@/app/lib/PostCardType";
-import { loadPost } from "@/app/lib/data/fetchPost";
-import PostCard from "./PostCard";
+import PostCardShadcd from "./PostCardShadcd";
+import { PostResponse } from "@/app/lib/PostCardType";
 
 export default async function PostCardList() {
-  const posts: PostCardType[] = await loadPost();
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/posts",
+    { cache: "no-store" }
+  );
+
+  const posts: PostResponse[] = await res.json();
 
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 ">
       {posts.map((post) => (
-        <PostCard
+        <PostCardShadcd
           key={post.id}
           userId={post.userId}
           id={post.id}

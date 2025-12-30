@@ -1,4 +1,4 @@
-export type PostCardType={
+export type PostResponse={
     userId:number;
     id:number;
     title:string;
