@@ -10,7 +10,7 @@ export default async function PostCardList() {
   const posts: PostResponse[] = await res.json();
 
   return (
-    <div className="grid gap-4 ">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
       {posts.map((post) => (
         <PostCardShadcd
           key={post.id}
